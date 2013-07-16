@@ -1,11 +1,14 @@
-# SQLite version 3.x
-#   gem install sqlite3
+# MySql version 5.5
+#   gem install mysql
 #
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+#   Ensure the MySql gem is defined in your Gemfile
+#   gem 'mysql'
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: mysql
+  database: devpronos
+  host: localhost
+  username: root
+  password: julien
   pool: 5
   timeout: 5000
 
@@ -13,13 +16,19 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: mysql
+  database: testpronos
+  host: localhost
+  username: root
+  password: julien
   pool: 5
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql
+  database: prodpronos
+  host: localhost
+  username: root
+  password: julien
   pool: 5
   timeout: 5000
