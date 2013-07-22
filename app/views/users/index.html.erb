@@ -1,0 +1,7 @@
+<h1>Users#index</h1>
+
+<ul>  
+<% @users.each do |user| %> 
+  <li><%= user.login %><p> - </p><%= user.nom %><p> - </p><%= user.prenom %><p> - </p><%= user.mail %><p> - </p><%= user.points %></li>
+<% end %>
+</ul>

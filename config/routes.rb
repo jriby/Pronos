@@ -1,4 +1,7 @@
 ProjetPronos::Application.routes.draw do
+
+  match '/users' => 'users#index', :as => :users, :via => :get  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
