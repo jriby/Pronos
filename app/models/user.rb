@@ -21,9 +21,10 @@ class User < ActiveRecord::Base
 
   validates :points, :numericality => {:greater_than_or_equal_to => 0}
 
+
   def init
-    self.points  ||= 0          #will set the default value only if it's nil
-    self.valide  ||= 0
+    self.points  ||= 0          #will set the default value only if it's nil 
+    self.valide  ||= false
   end
 
   def passwd=(passwd)
@@ -42,5 +43,9 @@ class User < ActiveRecord::Base
     u = User.find_by_login(login)
     !u.nil? && u.passwd == User.encrypt_password(password)
   end
+
+ def self.exist?(id)
+   User.find_by_login(id) != nil
+ end
 
 end

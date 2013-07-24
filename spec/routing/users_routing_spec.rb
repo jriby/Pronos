@@ -13,10 +13,16 @@ describe UsersController do
       get('/users/new').should route_to("users#new")
     end
     it "should provide the aliast new_user_path for /users/new" do
-      new_users_path.should == '/users/new'
+      new_user_path.should == '/users/new'
     end
     it "should routes to #create" do
       post('/users').should route_to("users#create")
+    end
+  end
+
+  describe 'edit user' do
+    it "routes to #index" do 
+      get('/users/julien/edit').should route_to("users#edit", :id => "julien")
     end
   end
 end

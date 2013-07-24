@@ -66,4 +66,24 @@ describe UsersController do
       response.should render_template(:new)
     end
   end
+  describe "GET '/user/:id/edit'" do
+    before(:each) do
+      @user = double(User)
+      User.stub(:find_by_login){@user}
+      @params={:id =>"juliano"}
+    end
+    it "should use user_exist" do
+      controller.should_receive(:user_exist)
+      get 'edit',@params
+    end
+    it "should use find" do
+      User.should_receive(:find_by_login).with("juliano")
+      get 'edit',@params
+      response.should be_success
+    end
+    it "renders the template edit" do
+      get 'edit',@params
+      response.should render_template(:edit)
+    end
+  end
 end

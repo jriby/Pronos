@@ -2,8 +2,8 @@
 
 <ul>  
 <% @users.each do |user| %> 
-  <li><%= user.login %><p> - </p><%= user.nom %><p> - </p><%= user.prenom %><p> - </p><%= user.mail %><p> - </p><%= user.points %></li>
+  <li><%= user.login %> - <%= user.nom %> - <%= user.prenom %> - <%= user.mail %> - <%= user.points %> - <%= user.valide %> - <%= link_to 'Edit', edit_user_path(user.login), :remote => true %></li>
 <% end %>
 </ul>
 
-<p><%= link_to 'New User', new_users_path, :remote => true %></p>
+<p><%= link_to 'New User', new_user_path, :remote => true %></p>

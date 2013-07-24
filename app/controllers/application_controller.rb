@@ -6,5 +6,7 @@ class ApplicationController < ActionController::Base
  def validate_passwd?(passwd,validate_passwd)
    passwd == validate_passwd
  end
-
+  def user_exist
+    redirect_to(users_path) unless User.exist?(params[:user_id]) || User.exist?(params[:id])
+  end
 end

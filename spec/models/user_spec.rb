@@ -16,6 +16,17 @@ context "init" do
       @u.mail = "nom.prenom@coucou.fr"
       @u.should be_valid
     end
+    it "should set valide at false and points at zero" do
+      @u.login = "jfunt"
+      @u.passwd = "pass"
+      @u.nom = "nom"
+      @u.prenom = "prenom"
+      @u.mail = "nom.prenom@coucou.fr"
+      @u.save
+      @u.valide.should == false
+      @u.points.should == 0
+    end
+
   end
 
   describe "With info missing" do
@@ -48,7 +59,6 @@ context "init" do
     end
   end
 end
-
 
 describe "Unicity" do
   it "should have a login unique" do

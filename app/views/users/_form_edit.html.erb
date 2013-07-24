@@ -1,0 +1,25 @@
+<div class="form">
+
+<%= form_tag("/users/#{@user.login}", :method => "put") do %>
+  <%= label(:user,:login, "login :", :id => "labelarea") %>
+  <%= text_field(:user, :login, :size => 55,:class => "form-field") %>
+    <br>
+  <%= label(:user,:passwd, "pass :", :id => "labelarea") %>
+  <%= text_field(:user, :passwd,:size => 55, :class => "form-field", :value => "°°°") %>
+    <br>
+  <%= label(:user,:nom, "Nom :", :id => "labelarea") %>
+  <%= text_field(:user, :nom, :size => 55,:class => "form-field") %>
+    <br>
+  <%= label(:user,:prenom, "Prenom :", :id => "labelarea") %>
+  <%= text_field(:user, :prenom, :size => 55,:class => "form-field") %>
+    <br>
+  <%= label(:user,:mail, "Mail :", :id => "labelarea") %>
+  <%= text_field(:user, :mail, :size => 55,:class => "form-field") %>
+    <br>
+  <%= label(:user,:valide, "Valide :", :id => "labelarea") %>
+  <%= check_box(:user, :valide, :class => "form-box") %>
+    <br>
+  <%= submit_tag("Update",:class => "form-submit") %>
+<% end %>
+
+</div>
