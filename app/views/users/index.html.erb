@@ -5,3 +5,5 @@
   <li><%= user.login %><p> - </p><%= user.nom %><p> - </p><%= user.prenom %><p> - </p><%= user.mail %><p> - </p><%= user.points %></li>
 <% end %>
 </ul>
+
+<p><%= link_to 'New User', new_users_path, :remote => true %></p>

@@ -1,0 +1,36 @@
+<h1>Portail d'inscription</h1>
+
+<% if @error %>
+<p >Les informations saisies sont incorrects</p>
+<ul>
+<% @error.each do |champ, mess| %>
+<li><%= champ %> : <%= mess.join(':') %></li>
+<% end %>
+</ul>
+<% end %>
+
+<p> <%= @error_passwd %>  </p>
+
+<div class="form">
+ <%= form_tag("/users", :method => "post") do %>
+  <%= label(:user,:login, "Login : ", :id => "labelarea") %>
+  <%= text_field(:user, :login, :size => 20,:class => "form-field") %>
+          <br><br><br><br>
+  <%= label(:user,:passwd, "Mot de passe :", :id => "labelarea") %>
+  <%= text_field(:user, :passwd,:size => 20, :class => "form-field", :type => "password") %>
+        <br><br><br><br>
+  <%= label(:validate_passwd, "Mot de passe :", :id => "labelarea") %>
+  <input id="validate_passwd" name="validate_passwd" size="20" type="password" />
+        <br><br><br><br>
+  <%= label(:user,:nom, "Nom :", :id => "labelarea") %>
+  <%= text_field(:user, :nom,:size => 20, :class => "form-field") %>
+        <br><br><br><br>
+  <%= label(:user,:prenom, "Prenom :", :id => "labelarea") %>
+  <%= text_field(:user, :prenom,:size => 20, :class => "form-field") %>
+        <br><br><br><br>
+  <%= label(:user,:mail, "Mail :", :id => "labelarea") %>
+  <%= text_field(:user, :mail,:size => 20, :class => "form-field") %>
+        <br><br><br><br>
+  <%= submit_tag("Create",:class => "form-submit") %>
+<% end %>
+</div>

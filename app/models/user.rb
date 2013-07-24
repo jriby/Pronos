@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   validates :nom, :presence => true
   validates :prenom, :presence => true
 
-  validates :passwd, :presence => true
+  validates :passwd, :presence => true,
+                     :length => { :minimum => 3, :maximum => 254}
 		    
   validates :mail, :presence => true,
                    :uniqueness => true,
@@ -22,6 +23,7 @@ class User < ActiveRecord::Base
 
   def init
     self.points  ||= 0          #will set the default value only if it's nil
+    self.valide  ||= 0
   end
 
   def passwd=(passwd)
